@@ -86,20 +86,15 @@
   var array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
 
   uniqueArray(array); // [1, 2, 3, 5, 9, 8]
-
-  function uniqueArray(array) {
-    var hashmap = {};
-    var unique = [];
-
-    for(var i = 0; i < array.length; i++) {
-      // If key returns undefined (unique), it is evaluated as false.
-      if(!hashmap.hasOwnProperty(array[i])) {
-        hashmap[array[i]] = 1;
-        unique.push(array[i]);
-      }
-    }
-
-    return unique;
+  
+  function uniqueArray (array) { 
+    return array.reduce(function (uniq, x) { 
+      if (uniq.indexOf(x) === -1) { 
+        uniq.push(x) 
+      } 
+      
+      return uniq 
+    }, []) 
   }
   ```
   **View on Codepen:** http://codepen.io/kennymkchan/pen/ZLNwze?editors=0012
